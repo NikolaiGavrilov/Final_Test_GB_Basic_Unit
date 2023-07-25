@@ -14,7 +14,7 @@
 
 
 // Метод выбора примера для проверки решения
-string [] ChooseYourExample (string [] Array1, string [] Array2, string [] Array3)
+string [] ChooseYourExample(string [] Array1, string [] Array2, string [] Array3)
 {
     
     Console.WriteLine("Which of these examples would you like to check?");
@@ -46,7 +46,7 @@ string [] ChooseYourExample (string [] Array1, string [] Array2, string [] Array
 
 // Метод введения пользовательского примера для проверки решения
 
-string [] InputYourExample ()
+string [] InputYourExample()
 {
     Console.Write("Input the number of elements in your array: ");
     int arraySize = Convert.ToInt32(Console.ReadLine());
@@ -71,7 +71,7 @@ string [] InputYourExample ()
 }
 
 // Метод печати массива
-void PrintArray (string [] arrayToPrint)
+void PrintArray(string [] arrayToPrint)
 {
     int i = 0;
     if (arrayToPrint.Length == 1)
@@ -95,7 +95,7 @@ void PrintArray (string [] arrayToPrint)
 }
 
 // Метод проверки длины элементов и создания нового массива из прошедших проверку элементов
-string [] ArrayAfterCheck (string [] arrayToCheck)
+string [] ArrayAfterCheck(string [] arrayToCheck)
 {
     
     int count = 0;
@@ -122,10 +122,10 @@ string [] ArrayAfterCheck (string [] arrayToCheck)
 string [] arrayToChoose1 = {"Hello", "2", "world", ":-)"};
 string [] arrayToChoose2 = {"1234", "1567", "-2", "computer science"};
 string [] arrayToChoose3 = {"Russia", "Denmark", "Kazan"};
-string [] arrayFromUser = ChooseYourExample (arrayToChoose1, arrayToChoose2, arrayToChoose3);
+string [] arrayFromUser = ChooseYourExample(arrayToChoose1, arrayToChoose2, arrayToChoose3);
 Console.Write("Your array is: ");
-PrintArray (arrayFromUser);
-string [] arrayFinal = ArrayAfterCheck (arrayFromUser);
+PrintArray(arrayFromUser);
+string [] arrayFinal = ArrayAfterCheck(arrayFromUser);
 Console.WriteLine();
 Console.Write("Your result is: ");
-PrintArray (arrayFinal);
+PrintArray(arrayFinal);
