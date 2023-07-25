@@ -73,16 +73,51 @@ string [] InputYourExample ()
 // Метод печати массива
 void PrintArray (string [] arrayToPrint)
 {
-    for (int i = 0; i < arrayToPrint.Length; i++)
+    int i = 0;
+    if (arrayToPrint.Length == 1)
+            Console.Write("[" + '"' + arrayToPrint[i] + '"' + "]");
+    else if (arrayToPrint.Length == 0)
+            Console.Write("[]");
+    else
     {
-        if (i == arrayToPrint.Length - 1)
-            Console.Write('"' + arrayToPrint[i] + '"' + "]");
-        else if (i == 0)
-            Console.Write("[" +'"' + arrayToPrint[i] + '"' + ", ");
-        else
-            Console.Write('"' + arrayToPrint[i] + '"' + ", ");
+        for (i = 0; i < arrayToPrint.Length; i++)
+        {
+            {
+                if (i == arrayToPrint.Length - 1)
+                    Console.Write('"' + arrayToPrint[i] + '"' + "]");
+                else if (i == 0)
+                    Console.Write("[" + '"' + arrayToPrint[i] + '"' + ", ");
+                else
+                    Console.Write('"' + arrayToPrint[i] + '"' + ", ");
+            }
+        }
     }
 }
+
+// Метод проверки длины элементов и создания нового массива из прошедших проверку элементов
+string [] ArrayAfterCheck (string [] arrayToCheck)
+{
+    
+    int count = 0;
+    for (int i = 0; i < arrayToCheck.Length; i++)
+    {
+        if (arrayToCheck[i].Length <= 3)
+                count ++;
+    }
+ 
+    string [] arrayAfterChecking = new string [count];
+    int j = 0;
+    for (int i = 0; i < arrayToCheck.Length; i++)
+    {
+        if (arrayToCheck[i].Length <= 3)
+        {
+            arrayAfterChecking[j] = arrayToCheck[i];
+            j++;
+        }
+    }
+    return arrayAfterChecking; 
+}
+
 
 string [] arrayToChoose1 = {"Hello", "2", "world", ":-)"};
 string [] arrayToChoose2 = {"1234", "1567", "-2", "computer science"};
@@ -90,3 +125,7 @@ string [] arrayToChoose3 = {"Russia", "Denmark", "Kazan"};
 string [] arrayFromUser = ChooseYourExample (arrayToChoose1, arrayToChoose2, arrayToChoose3);
 Console.Write("Your array is: ");
 PrintArray (arrayFromUser);
+string [] arrayFinal = ArrayAfterCheck (arrayFromUser);
+Console.WriteLine();
+Console.Write("Your result is: ");
+PrintArray (arrayFinal);
