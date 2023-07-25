@@ -13,9 +13,40 @@
 // [“Russia”, “Denmark”, “Kazan”] → []
 
 
+// Метод выбора примера для проверки решения
+string [] ChooseYourExample (string [] Array1, string [] Array2, string [] Array3)
+{
+    
+    Console.WriteLine("Which of these examples would you like to check?");
+    Console.WriteLine("1: [“Hello”, “2”, “world”, “:-)”]");
+    Console.WriteLine($"2: [“1234”, “1567”, “-2”, “computer science”]");
+    Console.WriteLine($"3: [“Russia”, “Denmark”, “Kazan”]");
+    Console.WriteLine($"4: your own example");
+    Console.WriteLine($"Input the number of your choice:");
+    string [] chosenArray = {};
+    int user_choice = Convert.ToInt32(Console.ReadLine());
+    if (user_choice == 1)
+        chosenArray = Array1;
+    else if (user_choice == 2)
+        chosenArray = Array2;
+    else if (user_choice == 3)
+        chosenArray = Array3;
+    else if (user_choice == 4)
+        chosenArray = InputYourExample ();
+    else
+    {
+        while (user_choice > 4 || user_choice <= 0)
+            {
+                Console.WriteLine($"Choose between 1, 2, 3, and 4:");
+                user_choice = Convert.ToInt32(Console.ReadLine());
+            }
+    }
+    return chosenArray;
+}
 
 // Метод введения пользовательского примера для проверки решения
-string[] InputYourExampleArray ()
+
+string [] InputYourExample ()
 {
     Console.Write("Input the number of elements in your array: ");
     int arraySize = Convert.ToInt32(Console.ReadLine());
@@ -29,13 +60,33 @@ string[] InputYourExampleArray ()
     for (int i = 0; i < arraySize; i++)
     {
         Console.WriteLine($"Input your word №{i+1}:");
-        userArray[i] = Console.ReadLine();
+        userArray[i] = Console.ReadLine()!;
         while (userArray[i] == "")
         {
             Console.WriteLine("Try again. You must type something:");
-            userArray[i] = Console.ReadLine();
+            userArray[i] = Console.ReadLine()!;
         }
     }
     return userArray;
 }
 
+// Метод печати массива
+void PrintArray (string [] arrayToPrint)
+{
+    for (int i = 0; i < arrayToPrint.Length; i++)
+    {
+        if (i == arrayToPrint.Length - 1)
+            Console.Write('"' + arrayToPrint[i] + '"' + "]");
+        else if (i == 0)
+            Console.Write("[" +'"' + arrayToPrint[i] + '"' + ", ");
+        else
+            Console.Write('"' + arrayToPrint[i] + '"' + ", ");
+    }
+}
+
+string [] arrayToChoose1 = {"Hello", "2", "world", ":-)"};
+string [] arrayToChoose2 = {"1234", "1567", "-2", "computer science"};
+string [] arrayToChoose3 = {"Russia", "Denmark", "Kazan"};
+string [] arrayFromUser = ChooseYourExample (arrayToChoose1, arrayToChoose2, arrayToChoose3);
+Console.Write("Your array is: ");
+PrintArray (arrayFromUser);
