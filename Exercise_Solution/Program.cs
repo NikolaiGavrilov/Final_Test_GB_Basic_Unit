@@ -24,21 +24,21 @@ string [] ChooseYourExample(string [] Array1, string [] Array2, string [] Array3
     Console.WriteLine($"4: your own example");
     Console.WriteLine($"Input the number of your choice:");
     string [] chosenArray = {};
-    int user_choice = Convert.ToInt32(Console.ReadLine());
-    if (user_choice == 1)
+    int userChoice = Convert.ToInt32(Console.ReadLine());
+    if (userChoice == 1)
         chosenArray = Array1;
-    else if (user_choice == 2)
+    else if (userChoice == 2)
         chosenArray = Array2;
-    else if (user_choice == 3)
+    else if (userChoice == 3)
         chosenArray = Array3;
-    else if (user_choice == 4)
+    else if (userChoice == 4)
         chosenArray = InputYourExample ();
     else
     {
-        while (user_choice > 4 || user_choice <= 0)
+        while (userChoice > 4 || userChoice <= 0)
             {
                 Console.WriteLine($"Choose between 1, 2, 3, and 4:");
-                user_choice = Convert.ToInt32(Console.ReadLine());
+                userChoice = Convert.ToInt32(Console.ReadLine());
             }
     }
     return chosenArray;
